@@ -1,0 +1,14 @@
+@import "../../sass/reset.scss";
+@import "../../sass/variables.scss";
+
+.popupnumbers {
+  width: 20px;
+  height: 20px;
+  //   padding: 5px;
+  border-radius: 50%;
+  border: 1px solid $iconic;
+  p {
+    text-align: center;
+    color: $iconic;
+  }
+}

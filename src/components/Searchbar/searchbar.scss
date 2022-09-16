@@ -1,0 +1,55 @@
+@import "../../sass/reset.scss";
+@import "../../sass/variables.scss";
+
+.searchbar {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  &__container {
+    width: 90%;
+    &__add-friend {
+      width: fit-content;
+      padding: 5px;
+      border: 1px solid transparent;
+      &:hover {
+        border: 1px solid $iconic;
+        border-radius: 5px;
+        svg,
+        p {
+          color: $iconic;
+        }
+      }
+      p {
+        font-size: 15px;
+        margin: 0 0 0 5px;
+      }
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-find-user {
+  padding: 0%;
+  cursor: pointer;
+  .ant-modal-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    .ant-checkbox-wrapper {
+      display: flex;
+      margin-left: 30px;
+      align-items: center;
+    }
+  }
+}
+.chosen-user {
+  flex-wrap: wrap;
+  &__container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.037);
+    border-radius: 5px;
+    p {
+      font-size: 15px;
+    }
+  }
+}

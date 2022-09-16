@@ -1,0 +1,3 @@
+export const GET_AUTH_STATE = "GET_AUTH_STATE";
+export const GET_USER_INFO = "GET_USER_INFO";
+export const GET_ACCESS_TOKEN = "GET_ACCESS_TOKEN";

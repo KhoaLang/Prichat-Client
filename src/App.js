@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Authenticate from "./pages/authenticate/Authenticate";
+import { Routes, Route } from "react-router-dom";
+import ChatRoom from "./pages/Chatroom";
+import "./App.scss";
+
+import "antd/dist/antd.less";
+import { ProtectedRoute } from "./components/commons/ProtectedRoute";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/auth" element={<Authenticate />} />
+        <Route path="/" element={<ProtectedRoute />}>
+          <Route path="chatroom/:userId" element={<ChatRoom />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

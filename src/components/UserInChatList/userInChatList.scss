@@ -1,0 +1,41 @@
+@import "../../sass/reset.scss";
+@import "../../sass/variables.scss";
+
+.userinchatlist {
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  transition: border-top 0.2s ease;
+  transition: border-bottom 0.2s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  &:hover {
+    border-top: 1px solid $iconic;
+    border-bottom: 1px solid $iconic;
+    .userinchatlist__user-status__name {
+      color: $iconic;
+    }
+  }
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  img {
+    margin-right: 10px;
+  }
+
+  &__user-status {
+    margin-right: 15px;
+    &__name {
+      font-size: 18px;
+      transition: color 0.2s ease;
+      font-weight: bold;
+    }
+    &__current-status {
+      font-size: 10px;
+    }
+  }
+}

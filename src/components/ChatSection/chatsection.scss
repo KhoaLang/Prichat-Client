@@ -1,0 +1,247 @@
+@import "../../sass/reset.scss";
+@import "../../sass/variables.scss";
+
+.chatsection {
+  width: 79%;
+  height: 90%;
+  position: fixed;
+  z-index: 2;
+  &__screen {
+    width: 100%;
+    height: 95%;
+    // background-color: yellow;
+    position: relative;
+    &__header {
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      border-bottom: 1px solid #e4e4e4;
+      background-color: transparent;
+      z-index: 5;
+      &__bg {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        // filter: blur(10px);
+        // background-color: rgba(255, 255, 255, 0.039);
+        position: absolute;
+        top: 0%;
+        left: 0%;
+
+        background: rgba(255, 255, 255, 0.45);
+        // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(12.5px);
+        -webkit-backdrop-filter: blur(12.5px);
+      }
+      &__title {
+        width: 100%;
+        h4 {
+          z-index: 3;
+          margin-bottom: 0%;
+        }
+        svg {
+          cursor: pointer;
+          &:hover {
+            color: $iconic;
+          }
+        }
+      }
+      &__modal {
+        position: absolute;
+        top: 120%;
+        right: 1%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 0 10px -1px rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(12.5px);
+        -webkit-backdrop-filter: blur(12.5px);
+        width: fit-content;
+        transition: all 0.2s ease;
+        border-radius: 10px;
+        li {
+          padding: 8px;
+          border-radius: 10px;
+          cursor: pointer;
+          &:nth-child(3),
+          &:nth-child(5) {
+            position: relative;
+            &::after {
+              content: "";
+              background-color: rgba(39, 39, 39, 0.45);
+              width: 90%;
+              height: 2px;
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          &:hover {
+            background-color: #0e162411;
+            p {
+              color: $iconic;
+            }
+            i {
+              color: $iconic;
+              fill: $iconic;
+            }
+          }
+          i {
+            font-size: 18px;
+            color: rgba(39, 39, 39, 0.45);
+          }
+
+          p {
+            font-size: 15px;
+            margin: 0;
+            padding-left: 20px;
+            color: rgba(39, 39, 39, 0.45);
+          }
+        }
+      }
+    }
+
+    &__main {
+      width: 100%;
+      height: 71vh;
+      overflow-y: scroll;
+      scroll-behavior: smooth !important;
+      z-index: 5;
+      &::-webkit-scrollbar {
+        width: 0.4rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #0e16243c;
+        border-radius: 0.5rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #f9f9f9;
+        border-radius: 0.5rem;
+      }
+
+      padding-top: 10px;
+      // background-color: blue;
+      &__mine,
+      &__their {
+        position: relative;
+        margin: 50px 10px 0 10px;
+        p {
+          font-size: 13px;
+          position: absolute;
+          top: -120%;
+          color: rgba(128, 128, 128, 0.658);
+        }
+        div {
+          width: fit-content;
+          position: relative;
+          .inner-chat-content {
+            padding: 10px;
+            width: fit-content;
+            // padding: 10px;
+            border-radius: 99px;
+            background-color: $iconic;
+          }
+          .context-menu,
+          .context-menu-their {
+            position: absolute;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.45);
+            box-shadow: 0 0 10px -1px rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(12.5px);
+            -webkit-backdrop-filter: blur(12.5px);
+            cursor: default;
+            li {
+              padding: 10px;
+              border-radius: 10px;
+              &:hover {
+                background-color: #0e162411;
+              }
+            }
+          }
+          .context-menu {
+            top: -300%;
+            left: -90%;
+          }
+          .context-menu-their {
+            top: -350%;
+            right: -90%;
+          }
+        }
+      }
+      &__their {
+        p {
+          left: 1%;
+        }
+      }
+      &__mine {
+        align-self: flex-end;
+        p {
+          right: 5%;
+        }
+      }
+    }
+  }
+  &__typing {
+    width: 100%;
+    justify-self: end;
+    padding: 10px 10px 5px 10px;
+    // border-top: 1px solid #e4e4e4;
+    &__outline-input {
+      width: 95%;
+      padding-right: 10px;
+      // border: 1px solid #4d4d4d;
+      background: rgba(146, 146, 146, 0.45);
+      backdrop-filter: blur(12.5px);
+      -webkit-backdrop-filter: blur(12.5px);
+      border-radius: 50px;
+      &__emoji-container {
+        position: relative;
+        &__emoji-picker {
+          position: absolute;
+          bottom: 110%;
+          right: 0%;
+          transition: all 0.2s ease;
+        }
+      }
+      &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 50px;
+        transition: all 0.2s ease;
+        font-size: 20px;
+        position: relative;
+        input {
+          position: absolute;
+          opacity: 0;
+          left: 0%;
+        }
+        &:nth-child(2) {
+          margin-right: 10px;
+        }
+        &:hover {
+          svg {
+            fill: $iconic;
+          }
+          // background-color: $iconic;
+        }
+      }
+      input {
+        width: 94%;
+        // margin-right: 20px;
+        border: none;
+        padding: 10px;
+        border-radius: 50px;
+        background: transparent;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
