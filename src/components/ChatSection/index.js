@@ -24,6 +24,7 @@ const listOfOptions = [
   {
     icon: <i className="bx bxs-edit-alt"></i>,
     title: "Customize chat",
+    postfix: <i className="bx bx-chevron-right"></i>,
   },
   {
     icon: <i className="bx bxs-bell"></i>,
@@ -108,7 +109,7 @@ const Chatsection = () => {
       setContent("");
     }
 
-    console.log(typeof files);
+    // console.log(typeof files);
   };
   const handleSelectedEmoji = (value) => {
     // console.log(value);
@@ -152,7 +153,7 @@ const Chatsection = () => {
         }
       });
     }
-  });
+  }, [dispatch]);
 
   return (
     <section className="chatsection d-flex flex-column justify-content-between">
@@ -179,6 +180,19 @@ const Chatsection = () => {
                 <li key={idx} className="d-flex align-items-center">
                   {item.icon}
                   <p>{item.title}</p>
+                  {item.postfix && <>{item.postfix}</>}
+                  {idx === 0 && (
+                    <span className="sub-options">
+                      <li>
+                        <i className="bx bxs-image"></i>
+                        <p>Change theme</p>
+                      </li>
+                      <li>
+                        <i className="bx bxs-edit-alt"></i>
+                        <p>Chang nickname</p>
+                      </li>
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

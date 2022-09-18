@@ -9,13 +9,10 @@ export const messageReducer = (state = initialState, action) => {
     case "GET_UPDATED_LIST":
       if (
         action.data._id ===
-        state.messagesList[state.messagesList.length - 1]._id
+          state.messagesList[state.messagesList.length - 1]._id ||
+        action.data.room !==
+          state.messagesList[state.messagesList.length - 1].room
       ) {
-        console.log(
-          action.data._id +
-            " " +
-            state.messagesList[state.messagesList.length - 1]._id
-        );
         return state;
       }
       return { ...state, messagesList: [...state.messagesList, action.data] };
